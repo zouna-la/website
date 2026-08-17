@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>走哪啦 (ZounaLa) - 个人生活痕迹与Moment记录器 | 本地优先 · 绝对隐私 · 极致工艺</title>
+  <meta name="description" content="走哪啦 (ZounaLa) 是一款专为生活漫步者、户外探索者与回忆收藏家打造的 iOS 本地优先生活记录器。记录发呆时刻、地理足迹、灵光瞬间与亲密里程碑，零云端追踪，数据完全归你所有。">
+  <meta name="keywords" content="走哪啦, ZounaLa, 生活记录, 地理足迹, 轨迹追踪, 发呆打卡, 亲密共同足迹, 本地优先, 隐私保护, iOS App, SwiftUI">
+  <meta name="theme-color" content="#000000">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/images/icon.png">
+  <link rel="apple-touch-icon" href="assets/images/icon.png">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- =========================================================================
+       Navigation Bar
+       ========================================================================= -->
+  <header class="site-header">
+    <div class="nav-container">
+      <a href="#" class="nav-brand">
+        <img src="assets/images/icon.png" alt="走哪啦 App Icon" class="brand-icon">
+        <span>走哪啦</span>
+        <span class="brand-tag">ZounaLa 2.0</span>
+      </a>
+
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#mission">产品宗旨</a></li>
+          <li><a href="#pillars">四大核心</a></li>
+          <li><a href="#audiences">目标用户</a></li>
+          <li><a href="#features">功能矩阵</a></li>
+          <li><a href="#simulator">实机体验</a></li>
+          <li><a href="#privacy">隐私与安全</a></li>
+          <li><a href="#tech">技术工艺</a></li>
+          <li><a href="#faq">常见问题</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="#download" class="btn-nav-cta">免费下载</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- =========================================================================
+       Hero Section
+       ========================================================================= -->
+  <section class="hero-section" id="hero">
+    <div class="hero-glow-bg"></div>
+
+    <div class="container hero-content">
+      <div class="hero-pill">
+        <span class="pill-dot"></span>
+        <span>全新发布：本地优先 · 零隐私妥协的生活痕迹记录器</span>
+      </div>
+
+      <h1 class="hero-title">
+        记录走过的路，<br>
+        和<span class="text-gradient-flow">发呆的时光</span>。
+      </h1>
+
+      <p class="hero-subtitle">
+        打破繁重日记的心理负担。无需精心构思长篇大论，以轻量打卡、地理足迹、端侧 AI 瞬间与亲密手账，为你构筑一份纯粹、安全、专属于个人的数字生命档案馆。
+      </p>
+
+      <div class="hero-cta-group">
+        <a href="#download" class="btn-primary">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 3.5c.61-.75 1.04-1.8 0.92-2.85-.92.05-2.02.63-2.65 1.37-.56.65-.96 1.7-0.83 2.72 1.02.08 2.05-.53 2.56-1.24z"/></svg>
+          App Store 免费获取
+        </a>
+        <a href="#simulator" class="btn-secondary">
+          <span>探索核心特性</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+
+      <!-- Pillars Ribbon -->
+      <div class="hero-pillars-ribbon">
+        <div class="pillar-item">
+          <span class="p-icon">🔒</span>
+          <span><strong>100% 本地化</strong> 离线沙盒存储</span>
+        </div>
+        <div class="pillar-divider"></div>
+        <div class="pillar-item">
+          <span class="p-icon">🛡️</span>
+          <span><strong>Curve25519</strong> 非对称私钥保护</span>
+        </div>
+        <div class="pillar-divider"></div>
+        <div class="pillar-item">
+          <span class="p-icon">🧠</span>
+          <span><strong>端侧 AI</strong> FoundationModels 离线总结</span>
+        </div>
+        <div class="pillar-divider"></div>
+        <div class="pillar-item">
+          <span class="p-icon">✨</span>
+          <span><strong>SwiftUI</strong> 灵动微交互与工艺</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Device Showcase Card -->
+    <div class="container hero-device-wrapper">
+      <div class="device-showcase-card">
+        <!-- Floating Badges -->
+        <div class="floating-badge badge-top-left">
+          <div class="badge-icon-box green">📍</div>
+          <div>
+            <div class="badge-text-title">1km 共同足迹碰撞</div>
+            <div class="badge-text-sub">Haversine 算法离线匹配</div>
+          </div>
+        </div>
+
+        <div class="floating-badge badge-bottom-left">
+          <div class="badge-icon-box purple">🧠</div>
+          <div>
+            <div class="badge-text-title">100% 端侧 AI 总结</div>
+            <div class="badge-text-sub">无数据离机 · 零云端泄露</div>
+          </div>
+        </div>
+
+        <!-- Real iPhone Frame -->
+        <div class="iphone-frame">
+          <div class="iphone-island">
+            <div class="island-camera"></div>
+            <div class="island-sensor"></div>
+          </div>
+          <div class="iphone-screen">
+            <img src="assets/images/guide.png" alt="走哪啦 应用界面">
+          </div>
+        </div>
+
+        <div class="floating-badge badge-top-right">
+          <div class="badge-icon-box blue">🏃</div>
+          <div>
+            <div class="badge-text-title">3m 动态防漂移追踪</div>
+            <div class="badge-text-sub">锁屏常驻 · 降噪防发烫</div>
+          </div>
+        </div>
+
+        <div class="floating-badge badge-bottom-right">
+          <div class="badge-icon-box orange">📊</div>
+          <div>
+            <div class="badge-text-title">26 周打卡热力矩阵</div>
+            <div class="badge-text-sub">直观量化个人生活轨迹</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       Section 1: Mission & Philosophy (产品宗旨与对比)
+       ========================================================================= -->
+  <section class="section section-darker" id="mission">
+    <div class="container">
+      <div class="section-header reveal-on-scroll">
+        <span class="section-eyebrow">PHILOSOPHY & PURPOSE</span>
+        <h2 class="section-title">为什么需要「走哪啦」？</h2>
+        <p class="section-subtitle">
+          传统日记应用太沉重，社交软件充满窥探与算法推流。走哪啦为你提供一个轻量、自由、完全属于自己的私人生活刻度。
+        </p>
+      </div>
+
+      <div class="philosophy-grid">
+        <!-- Traditional Way -->
+        <div class="philosophy-card card-traditional reveal-on-scroll">
+          <span class="philosophy-badge bad">✕ 传统记录方式的困境</span>
+          <h3>沉重的心理负担与隐私焦虑</h3>
+          <p>
+            常常打开日记本却不知从何写起；商业应用强制绑定手机号与云端存储，你的足迹、随笔与私人照片随时面临数据泄露与算法画像。
+          </p>
+          <ul class="philosophy-list">
+            <li>
+              <span class="icon-status">⚠️</span>
+              <div><strong>长篇创作压力：</strong> 必须组织大段文字，几天不写就彻底放弃。</div>
+            </li>
+            <li>
+              <span class="icon-status">⚠️</span>
+              <div><strong>云端隐私风险：</strong> 位置和私人瞬间被上传到第三方服务器。</div>
+            </li>
+            <li>
+              <span class="icon-status">⚠️</span>
+              <div><strong>算法与广告打扰：</strong> 充斥社交推荐、点赞焦虑与开屏广告。</div>
+            </li>
+            <li>
+              <span class="icon-status">⚠️</span>
+              <div><strong>厂商锁定与断网失效：</strong> 离开网络无法正常使用，数据难以完整带走。</div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- ZounaLa Way -->
+        <div class="philosophy-card card-zounala reveal-on-scroll">
+          <span class="philosophy-badge good">✓ 走哪啦 (ZounaLa) 的解法</span>
+          <h3>轻量碎片记录 · 本地绝对主权</h3>
+          <p>
+            以极低门槛的“发呆打卡”、“足迹定位”和“端侧 AI 瞬间”量化日常。纯离线运行，哪怕在没有信号的深山或机舱，你的生活档案馆永远触手可及。
+          </p>
+          <ul class="philosophy-list">
+            <li>
+              <span class="icon-status">✨</span>
+              <div><strong>0 负担碎片打卡：</strong> 一键记录发呆、咖啡、散步，趣味无聊度自动量化。</div>
+            </li>
+            <li>
+              <span class="icon-status">✨</span>
+              <div><strong>100% 本地优先：</strong> 数据只存在于你的 iPhone 沙盒，无中央服务器窥探。</div>
+            </li>
+            <li>
+              <span class="icon-status">✨</span>
+              <div><strong>端侧 AI 智能周报：</strong> Apple FoundationModels 本地计算，自动提炼心理学洞察。</div>
+            </li>
+            <li>
+              <span class="icon-status">✨</span>
+              <div><strong>完整数据自主权：</strong> 支持全量 ZIP 打包导出、私钥加密保护与随时无缝还原。</div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Philosophy Quote Banner -->
+      <div class="quote-highlight-banner reveal-on-scroll">
+        <h4>“生活不只有宏大的叙事，更有街角发呆的 10 分钟，和走过的每一段路。”</h4>
+        <p>走哪啦旨在成为你最忠实、最安静的生活伴侣，替你妥善封存每一寸光阴。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       Section 2: Four Core Pillars (四大核心特质：本地化、安全、隐私、精致)
+       ========================================================================= -->
+  <section class="section section-gradient-ambient" id="pillars">
+    <div class="container">
+      <div class="section-header reveal-on-scroll">
+        <span class="section-eyebrow">FOUR PILLARS</span>
+        <h2 class="section-title">坚守四大核心设计法则</h2>
+        <p class="section-subtitle">
+          从底层代码到界面像素，走哪啦以近乎苛刻的标准打磨每一个细节。
+        </p>
+      </div>
+
+      <div class="pillars-grid">
+        <!-- Pillar 1: 本地化 -->
+        <div class="pillar-card p-local reveal-on-scroll">
+          <div class="pillar-card-icon">⚡️</div>
+          <h3>本地优先</h3>
+          <div class="pillar-tagline">Local-First Architecture</div>
+          <p>
+            不依赖外部云服务器，所有数据本地持久化。断网全功能可用，速度飞快，没有网络延迟与宕机困扰。
+          </p>
+          <div class="pillar-tech-specs">
+            <div class="tech-spec-item">架构：<span>SwiftData + 本地沙盒</span></div>
+            <div class="tech-spec-item">可用性：<span>100% 离线脱网可用</span></div>
+            <div class="tech-spec-item">迁移：<span>标准 ZIP 全量无损包</span></div>
+          </div>
+        </div>
+
+        <!-- Pillar 2: 极致安全 -->
+        <div class="pillar-card p-security reveal-on-scroll">
+          <div class="pillar-card-icon">🛡️</div>
+          <h3>密码级安全</h3>
+          <div class="pillar-tagline">Rock-Solid Security</div>
+          <p>
+            采用非对称加密算法守护身份。支持身份私钥安全导出，并在激活后 3~7 天提供贴心备份提醒管家。
+          </p>
+          <div class="pillar-tech-specs">
+            <div class="tech-spec-item">密码学：<span>Curve25519 密钥对</span></div>
+            <div class="tech-spec-item">签名验证：<span>防篡改加密二维码</span></div>
+            <div class="tech-spec-item">安全提醒：<span>本地状态全生命周期追踪</span></div>
+          </div>
+        </div>
+
+        <!-- Pillar 3: 绝对隐私 -->
+        <div class="pillar-card p-privacy reveal-on-scroll">
+          <div class="pillar-card-icon">👁️‍🗨️</div>
+          <h3>零隐私妥协</h3>
+          <div class="pillar-tagline">Absolute Privacy</div>
+          <p>
+            零广告、零第三方追踪 SDK。端侧 AI 模型直接在设备芯片上推理，绝不将你的照片、定位与日记上传云端。
+          </p>
+          <div class="pillar-tech-specs">
+            <div class="tech-spec-item">端侧智能：<span>Apple FoundationModels</span></div>
+            <div class="tech-spec-item">数据追踪：<span>0 统计埋点 / 0 广告</span></div>
+            <div class="tech-spec-item">空间算法：<span>1km 碰撞本地独立计算</span></div>
+          </div>
+        </div>
+
+        <!-- Pillar 4: 精致工艺 -->
+        <div class="pillar-card p-craft reveal-on-scroll">
+          <div class="pillar-card-icon">✨</div>
+          <h3>精致美学</h3>
+          <div class="pillar-tagline">Refined Craftsmanship</div>
+          <p>
+            原生 SwiftUI 匠心打造。羊皮纸复古手账、自适应半年贡献热力图、拍立得倾斜相片与 Taptic 触觉反馈。
+          </p>
+          <div class="pillar-tech-specs">
+            <div class="tech-spec-item">UI 引擎：<span>SwiftUI 原生动画流</span></div>
+            <div class="tech-spec-item">交互海报：<span>340×530 离屏高保真渲染</span></div>
+            <div class="tech-spec-item">小组件：<span>iOS 17+ Interactive Widget</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       Section 3: Target Audiences (目标用户画像 - 一目了然)
+       ========================================================================= -->
+  <section class="section section-darker" id="audiences">
+    <div class="container">
+      <div class="section-header reveal-on-scroll">
+        <span class="section-eyebrow orange">TARGET AUDIENCE</span>
+        <h2 class="section-title">专为热爱生活的你而设计</h2>
+        <p class="section-subtitle">
+          无论你是漫步街头的探索者，还是珍视回忆的伴侣，走哪啦都能完美契合你的节奏。
+        </p>
+      </div>
+
+      <div class="personas-grid">
+        <!-- Persona 1 -->
+        <div class="persona-card persona-walker reveal-on-scroll">
+          <div class="persona-header">
+            <div class="persona-avatar">🚶‍♂️</div>
+            <div class="persona-title-group">
+              <h3>城市漫步与生活探索者</h3>
+              <div class="persona-subtitle-tag">City Walkers & Daily Flâneurs</div>
+            </div>
+          </div>
+          <div class="persona-quote">“在咖啡馆发呆 20 分钟，或者在陌生的街巷漫无目的地走走，都是生活的黄金切片。”</div>
+          <div class="persona-features-box">
+            <h4>为你定制的核心体验</h4>
+            <div class="persona-chips">
+              <span class="persona-chip">☕️ 发呆打卡 & 趣味无聊指数</span>
+              <span class="persona-chip">📍 1km 防重复误触打卡</span>
+              <span class="persona-chip">🌐 环境感知 30 分钟停留自动提醒</span>
+              <span class="persona-chip">🗣️ Siri 语音一键发呆</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Persona 2 -->
+        <div class="persona-card persona-hiker reveal-on-scroll">
+          <div class="persona-header">
+            <div class="persona-avatar">⛰️</div>
+            <div class="persona-title-group">
+              <h3>户外徒步与旅行骑行爱好者</h3>
+              <div class="persona-subtitle-tag">Hikers, Cyclists & Travelers</div>
+            </div>
+          </div>
+          <div class="persona-quote">“登山徒步时，我需要可靠的后台轨迹追踪，不发烫、不耗电，还能自动生成精美海报。”</div>
+          <div class="persona-features-box">
+            <h4>为你定制的核心体验</h4>
+            <div class="persona-chips">
+              <span class="persona-chip">🗺️ 锁屏常驻 Polyline 路线绘制</span>
+              <span class="persona-chip">🔋 3m 动态位移过滤 & 防发烫算法</span>
+              <span class="persona-chip">📈 KCAL / 步数 / 配速全维度看板</span>
+              <span class="persona-chip">🖼️ 相册 EXIF 批量导入历史足迹</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Persona 3 -->
+        <div class="persona-card persona-couple reveal-on-scroll">
+          <div class="persona-header">
+            <div class="persona-avatar">💌</div>
+            <div class="persona-title-group">
+              <h3>亲密伴侣与回忆收藏家</h3>
+              <div class="persona-subtitle-tag">Couples, Families & Memory Curators</div>
+            </div>
+          </div>
+          <div class="persona-quote">“当我们再次走过曾经一起打卡的路口，那些定格的照片和故事会自动重现。”</div>
+          <div class="persona-features-box">
+            <h4>为你定制的核心体验</h4>
+            <div class="persona-chips">
+              <span class="persona-chip">👩‍❤️‍👨 蓝牙碰一碰 / 加密二维码名片</span>
+              <span class="persona-chip">📍 1km 共同打卡空间碰撞算法</span>
+              <span class="persona-chip">📖 羊皮纸拍立得三段式故事手账</span>
+              <span class="persona-chip">🏆 亲密里程碑大盘统计</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Persona 4 -->
+        <div class="persona-card persona-geek reveal-on-scroll">
+          <div class="persona-header">
+            <div class="persona-avatar">🔒</div>
+            <div class="persona-title-group">
+              <h3>隐私先锋与量化自我践行者</h3>
+              <div class="persona-subtitle-tag">Privacy Advocates & Quantified Selfers</div>
+            </div>
+          </div>
+          <div class="persona-quote">“我不信任任何云服务商。我的定位轨迹和心情文字必须 100% 掌握在自己手里。”</div>
+          <div class="persona-features-box">
+            <h4>为你定制的核心体验</h4>
+            <div class="persona-chips">
+              <span class="persona-chip">🛡️ Curve25519 身份私钥全控制</span>
+              <span class="persona-chip">🚫 零云端依赖 · 零远程埋点追踪</span>
+              <span class="persona-chip">📊 26 周半年活跃贡献热力矩阵</span>
+              <span class="persona-chip">📦 单键无损 ZIP 导出与灾备</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       Section 4: Bento Grid Features (深度功能矩阵)
+       ========================================================================= -->
+  <section class="section" id="features">
+    <div class="container">
+      <div class="section-header reveal-on-scroll">
+        <span class="section-eyebrow green">POWERFUL CAPABILITIES</span>
+        <h2 class="section-title">功能矩阵 · 为灵动生活量身定制</h2>
+        <p class="section-subtitle">
+          不仅是工具，更是一件融合了先进算法与艺术审美的生活记录杰作。
+        </p>
+      </div>
+
+      <div class="bento-grid">
+        <!-- Bento 1: 足迹追踪与防发烫 (Col 8) -->
+        <div class="bento-card bento-col-8 reveal-on-scroll">
+          <div>
+            <span class="bento-card-badge">📍 核心模块 · 足迹与追踪</span>
+            <h3>低功耗防漂移实时路线追踪</h3>
+            <p>
+              面向登山、徒步与骑行场景，支持锁屏与后台常驻追踪。内置 3 米动态位移过滤与 35 米精度降噪算法，彻底杜绝发烫与电量暴跌。
+            </p>
+          </div>
+
+          <div class="bento-visual-map">
+            <div class="map-stats-strip">
+              <div class="map-stat-col">
+                <div class="stat-val" id="statDistance">4.82 km</div>
+                <div class="stat-lbl">总距离</div>
+              </div>
+              <div class="map-stat-col">
+                <div class="stat-val" id="statCalories">286 kcal</div>
+                <div class="stat-lbl">卡路里</div>
+              </div>
+              <div class="map-stat-col">
+                <div class="stat-val" id="statSteps">6,840</div>
+                <div class="stat-lbl">硬件步数</div>
+              </div>
+              <div class="map-stat-col">
+                <div class="stat-val" id="statPace">6'12"</div>
+                <div class="stat-lbl">平均配速</div>
+              </div>
+            </div>
+
+            <!-- Simulated SVG Route -->
+            <svg class="interactive-route-svg" viewBox="0 0 500 100" fill="none">
+              <path d="M 20 80 Q 80 20, 150 60 T 280 40 T 400 70 T 480 30" stroke="rgba(41, 151, 255, 0.4)" stroke-width="6" stroke-linecap="round"/>
+              <path d="M 20 80 Q 80 20, 150 60 T 280 40 T 400 70 T 480 30" stroke="#2997ff" stroke-width="3" stroke-linecap="round" stroke-dasharray="10 5"/>
+              <circle cx="480" cy="30" r="6" fill="#30d158" stroke="#ffffff" stroke-width="2"/>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Bento 2: 发呆打卡与无聊指数 (Col 4) -->
+        <div class="bento-card bento-col-4 reveal-on-scroll">
+          <div>
+            <span class="bento-card-badge">☕️ 碎片打卡 · 发呆</span>
+            <h3>发呆时间线与趣味无聊度</h3>
+            <p>
+              长下拉触发回弹震动，自动统计当日活动频次，并以幽默口吻为你评定无聊指数。
+            </p>
+          </div>
+
+          <div class="boredom-visual-box">
+            <div class="boredom-status-row">
+              <span>今日累计: <strong id="boredomCount">4 次发呆</strong></span>
+              <span class="boredom-status-tag" id="boredomTag">非常无聊 🫠</span>
+            </div>
+            <div class="boredom-meter-bar">
+              <div class="boredom-meter-fill" id="boredomMeterFill"></div>
+            </div>
+            <input type="range" id="boredomSlider" min="0" max="10" value="4" style="width: 100%; accent-color: var(--apple-blue);">
+            <div style="font-size: 11px; color: var(--text-tertiary); text-align: center;">拖动滑块模拟今日打卡频次</div>
+          </div>
+        </div>
+
+        <!-- Bento 3: 26 周热力图 (Col 6) -->
+        <div class="bento-card bento-col-6 reveal-on-scroll">
+          <div>
+            <span class="bento-card-badge">📊 统计大盘 · 半年热力图</span>
+            <h3>自适应 26 周生活活跃度矩阵</h3>
+            <p>
+              借鉴 GitHub 贡献矩阵算法，在足迹大盘中自适应撑满展示近 182 天的生活轨迹活跃度。
+            </p>
+          </div>
+
+          <div class="heatmap-visual-box">
+            <div class="heatmap-grid-demo" id="heatmapContainer">
+              <!-- Dynamically generated via JS -->
+            </div>
+            <div style="display: flex; justify-content: space-between; font-size: 11px; color: var(--text-tertiary);">
+              <span>6 个月前</span>
+              <span>26 周连续打卡</span>
+              <span>今天</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bento 4: 亲密共同足迹与拍立得 (Col 6) -->
+        <div class="bento-card bento-col-6 reveal-on-scroll">
+          <div>
+            <span class="bento-card-badge">👩‍❤️‍👨 亲密空间 · 共同里程碑</span>
+            <h3>1km 空间碰撞与复古手账绘本</h3>
+            <p>
+              自动识别 1,000 米内的重合足迹。在复古羊皮纸上散落 10 天内的拍立得照片，自动生成怀旧叙事。
+            </p>
+          </div>
+
+          <div class="polaroid-stack-visual">
+            <div class="mini-polaroid">
+              <div class="mini-polaroid-photo">
+                <img src="assets/images/UI-2.JPG" alt="瞬间照片">
+              </div>
+              <div class="mini-polaroid-caption">老咖啡馆 ☕️</div>
+            </div>
+            <div class="mini-polaroid">
+              <div class="mini-polaroid-photo">
+                <img src="assets/images/UI-4.PNG" alt="足迹照片">
+              </div>
+              <div class="mini-polaroid-caption">海边步道 🌊</div>
+            </div>
+            <div class="mini-polaroid">
+              <div class="mini-polaroid-photo">
+                <img src="assets/images/UI-1.PNG" alt="打卡记录">
+              </div>
+              <div class="mini-polaroid-caption">山顶落日 🌅</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bento 5: 桌面与锁屏小组件 (Col 6) -->
+        <div class="bento-card bento-col-6 reveal-on-scroll">
+          <div>
+            <span class="bento-card-badge">📱 桌面生态 · WidgetKit</span>
+            <h3>多尺寸交互式桌面与锁屏小组件</h3>
+            <p>
+              支持 1x1、2x2、1x2、4x2 以及 iOS 17 锁屏组件。大热区一键打卡与发呆，数据实时双向同步。
+            </p>
+          </div>
+
+          <div class="widget-mockup-row">
+            <!-- Small Widget -->
+            <div class="widget-box small">
+              <div class="widget-header">
+                <span>📍 走哪啦</span>
+                <span>今日 3 次</span>
+              </div>
+              <div class="widget-btn-action">📍 一键打卡</div>
+            </div>
+
+            <!-- Medium Widget -->
+            <div class="widget-box medium">
+              <div class="widget-header">
+                <span>☕️ 发呆时间线</span>
+                <span style="color: var(--apple-green);">无聊指数: 良好</span>
+              </div>
+              <div style="font-size: 13px; font-weight: 600;">上次: 滨海公园长椅发呆</div>
+              <div style="display: flex; gap: 8px;">
+                <div class="widget-btn-action" style="flex: 1;">📍 打卡</div>
+                <div class="widget-btn-action" style="flex: 1;">☕️ 发呆</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bento 6: 端侧 AI 与心境周报 (Col 6) -->
+        <div class="bento-card bento-col-6 reveal-on-scroll">
+          <div>
+            <span class="bento-card-badge">🧠 端侧智能 · AI 周报</span>
+            <h3>每周日自动生成心境周报海报</h3>
+            <p>
+              基于端侧 FoundationModels 模型自动提炼心理学洞察。340×530 离屏高保真渲染，一键存入相册。
+            </p>
+          </div>
+
+          <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 18px; margin-top: 16px;">
+            <div style="font-size: 13px; font-weight: 600; color: var(--apple-purple); margin-bottom: 6px;">
+              ✨ 端侧 AI 本周心境洞察
+            </div>
+            <div style="font-size: 13px; color: var(--text-secondary); line-height: 1.5; font-style: italic;">
+              “这周你探索了 3 个全新的街区，并在发呆中度过了 140 分钟。比起上周的忙碌，你找到了属于自己的呼吸节奏。”
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       Section 5: Interactive Simulator / Live Showcase (实机体验)
+       ========================================================================= -->
+  <section class="section section-darker" id="simulator">
+    <div class="container">
+      <div class="section-header reveal-on-scroll">
+        <span class="section-eyebrow purple">INTERACTIVE SHOWCASE</span>
+        <h2 class="section-title">沉浸式体验四大核心视图</h2>
+        <p class="section-subtitle">
+          点击切换不同功能模块，直观感受走哪啦的精湛设计与流畅交互。
+        </p>
+      </div>
+
+      <div class="simulator-wrapper reveal-on-scroll">
+        <div class="sim-nav-tabs">
+          <button class="sim-tab-btn active" data-target="panel-footprint">📍 足迹与轨迹追踪</button>
+          <button class="sim-tab-btn" data-target="panel-idletime">☕️ 发呆与无聊统计</button>
+          <button class="sim-tab-btn" data-target="panel-family">👩‍❤️‍👨 亲密共同足迹</button>
+          <button class="sim-tab-btn" data-target="panel-moment">✨ 端侧 AI 瞬间与周报</button>
+        </div>
+
+        <!-- Panel 1: 足迹 -->
+        <div class="sim-panel active" id="panel-footprint">
+          <div class="sim-info-col">
+            <span class="section-eyebrow">FOOTPRINT & TRACKING</span>
+            <h3>让走过的每一条路，<br>都成为地图上的画卷。</h3>
+            <p>
+              采用 MapKit 点聚合算法，支持多级缩放。在户外徒步模式下，实时计算全程距离、硬件步数与卡路里消耗，并支持一键生成高清足迹地图海报。
+            </p>
+            <ul class="sim-feature-bullets">
+              <li><span class="bullet-check">✓</span> <strong>1km 智能防误触：</strong> 重复位置自动提示，精准计算跨度公里数</li>
+              <li><span class="bullet-check">✓</span> <strong>相册 EXIF 批量提取：</strong> 智能读取照片地理信息一键生成历史足迹</li>
+              <li><span class="bullet-check">✓</span> <strong>5 状态平滑流转：</strong> 准备 → 追踪 → 暂停长按结束 → 结算月度归档</li>
+            </ul>
+          </div>
+          <div class="sim-preview-col">
+            <div class="sim-phone-display">
+              <div class="sim-phone-screen">
+                <img src="assets/images/UI-4.PNG" alt="足迹地图界面">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Panel 2: 发呆 -->
+        <div class="sim-panel" id="panel-idletime">
+          <div class="sim-info-col">
+            <span class="section-eyebrow orange">IDLE TIME</span>
+            <h3>为放空赋予意义，<br>记录每一个发呆时刻。</h3>
+            <p>
+              生活不仅需要前进，更需要停下来发呆。轻松记录无聊时刻与碎片灵感，长下拉展开弹簧回弹统计面板。
+            </p>
+            <ul class="sim-feature-bullets">
+              <li><span class="bullet-check">✓</span> <strong>趣味无聊度评级：</strong> 智能根据当日频次反馈专属调侃评语</li>
+              <li><span class="bullet-check">✓</span> <strong>环境感知停留提醒：</strong> 停留满 30 分钟智能推送记录轻提示</li>
+              <li><span class="bullet-check">✓</span> <strong>Taptic 震动交互：</strong> 每一个微小触控都伴随真实触觉回馈</li>
+            </ul>
+          </div>
+          <div class="sim-preview-col">
+            <div class="sim-phone-display">
+              <div class="sim-phone-screen">
+                <img src="assets/images/UI-1.PNG" alt="发呆时间线界面">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Panel 3: 亲密关系 -->
+        <div class="sim-panel" id="panel-family">
+          <div class="sim-info-col">
+            <span class="section-eyebrow pink">INTIMATE MILESTONES</span>
+            <h3>双人轨迹交汇，<br>共谱三段式手账故事。</h3>
+            <p>
+              通过蓝牙碰一碰或离线加密二维码快速连接伴侣。空间算法自动计算双方重叠的 1km 共同足迹，在羊皮纸与拍立得照片墙中重温美好回忆。
+            </p>
+            <ul class="sim-feature-bullets">
+              <li><span class="bullet-check">✓</span> <strong>碰一碰连接：</strong> 离线蓝牙触碰，无需繁琐账号添加</li>
+              <li><span class="bullet-check">✓</span> <strong>空间碰撞算法：</strong> 1,000m 范围内重合打卡自动识别</li>
+              <li><span class="bullet-check">✓</span> <strong>三段式绘本导出：</strong> 地图悬挂针 + 拍立得照片 + 怀旧长图海报</li>
+            </ul>
+          </div>
+          <div class="sim-preview-col">
+            <div class="sim-phone-display">
+              <div class="sim-phone-screen">
+                <img src="assets/images/UI-5.PNG" alt="亲密关系与手账">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Panel 4: 瞬间与周报 -->
+        <div class="sim-panel" id="panel-moment">
+          <div class="sim-info-col">
+            <span class="section-eyebrow green">MOMENTS & WEEKLY REPORT</span>
+            <h3>端侧 AI 提炼灵感，<br>周日自动沉淀心境周报。</h3>
+            <p>
+              支持图文、心情与地理标签。内置 Apple FoundationModels 端侧模型，自动为你生成精炼标题，并在周末呈现 1:1 拍立得复古周报。
+            </p>
+            <ul class="sim-feature-bullets">
+              <li><span class="bullet-check">✓</span> <strong>端侧 30 字智能摘要：</strong> 芯片离线推理，绝不将私密随笔外传</li>
+              <li><span class="bullet-check">✓</span> <strong>两端对齐排版：</strong> 消除顶部 SafeArea 偏移，呈现极致排版美学</li>
+              <li><span class="bullet-check">✓</span> <strong>防重复弹出机制：</strong> 原子化状态落盘，保证周报优雅呈现</li>
+            </ul>
+          </div>
+          <div class="sim-preview-col">
+            <div class="sim-phone-display">
+              <div class="sim-phone-screen">
+                <img src="assets/images/UI-3.PNG" alt="瞬间随笔编辑">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       Section 6: Privacy & Security Comparison (隐私与安全白皮书对比)
+       ========================================================================= -->
+  <section class="section" id="privacy">
+    <div class="container">
+      <div class="section-header reveal-on-scroll">
+        <span class="section-eyebrow green">ZERO COMPROMISE PRIVACY</span>
+        <h2 class="section-title">你的数据，永远只属于你。</h2>
+        <p class="section-subtitle">
+          在这个个人隐私被肆意买卖和分析的时代，走哪啦坚守本地沙盒与密码学保护，让你的回忆坚如磐石。
+        </p>
+      </div>
+
+      <div class="privacy-table-wrapper reveal-on-scroll">
+        <table class="privacy-table">
+          <thead>
+            <tr>
+              <th style="width: 25%;">对比维度</th>
+              <th class="col-highlight" style="width: 38%;">✨ 走哪啦 (ZounaLa)</th>
+              <th style="width: 37%;">☁️ 常见商业云端记录软件</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>数据存储位置</strong></td>
+              <td><span class="tag-secure">✓ 100% 本地 iPhone 沙盒</span></td>
+              <td><span class="tag-risk">✕ 第三方公共云服务器</span></td>
+            </tr>
+            <tr>
+              <td><strong>AI 总结与周报</strong></td>
+              <td><span class="tag-secure">✓ Apple FoundationModels 端侧推理</span></td>
+              <td><span class="tag-risk">✕ 将用户私密日记上传大模型云端</span></td>
+            </tr>
+            <tr>
+              <td><strong>身份与名片认证</strong></td>
+              <td><span class="tag-secure">✓ Curve25519 非对称加密私钥</span></td>
+              <td><span class="tag-risk">✕ 手机号 / 实名认证 / 社交关系链</span></td>
+            </tr>
+            <tr>
+              <td><strong>第三方广告与埋点</strong></td>
+              <td><span class="tag-secure">✓ 0 广告 · 0 统计 SDK · 0 追踪</span></td>
+              <td><span class="tag-risk">✕ 内置广告推广与用户行为大数据画像</span></td>
+            </tr>
+            <tr>
+              <td><strong>脱网与断网可用性</strong></td>
+              <td><span class="tag-secure">✓ 飞行模式 / 深山脱网全功能可用</span></td>
+              <td><span class="tag-risk">✕ 无法加载历史数据，服务随时可能中断</span></td>
+            </tr>
+            <tr>
+              <td><strong>数据导出与归属</strong></td>
+              <td><span class="tag-secure">✓ 一键标准 ZIP 全量导出与随时还原</span></td>
+              <td><span class="tag-risk">✕ 厂商封闭锁定，难以无损迁移数据</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       Section 7: Technical Specifications (工程技术工艺)
+       ========================================================================= -->
+  <section class="section section-darker" id="tech">
+    <div class="container">
+      <div class="section-header reveal-on-scroll">
+        <span class="section-eyebrow">ENGINEERING CRAFT</span>
+        <h2 class="section-title">原生架构 · 追求极致性能</h2>
+        <p class="section-subtitle">
+          走哪啦深度整合 Apple 最新系统级框架与硬件传感器能力。
+        </p>
+      </div>
+
+      <div class="tech-cards-grid">
+        <div class="tech-card reveal-on-scroll">
+          <div class="tech-card-header">
+            <div class="tech-badge-icon">🎨</div>
+            <h4>SwiftUI & Taptic</h4>
+          </div>
+          <p>基于声明式 SwiftUI 架构与 iOS 原生弹簧动画曲线，集成 UIImpactFeedbackGenerator 细腻震动反馈。</p>
+        </div>
+
+        <div class="tech-card reveal-on-scroll">
+          <div class="tech-card-header">
+            <div class="tech-badge-icon">🗺️</div>
+            <h4>MapKit & Clustering</h4>
+          </div>
+          <p>高性能点聚合 MKClusterAnnotation 与 MKMapSnapshotter 离线高精度底图渲染引擎。</p>
+        </div>
+
+        <div class="tech-card reveal-on-scroll">
+          <div class="tech-card-header">
+            <div class="tech-badge-icon">🧠</div>
+            <h4>FoundationModels</h4>
+          </div>
+          <p>端侧神经引擎加速，实现零延迟、零网络消耗的 30 字智能标题提炼与心理学生活周报。</p>
+        </div>
+
+        <div class="tech-card reveal-on-scroll">
+          <div class="tech-card-header">
+            <div class="tech-badge-icon">📐</div>
+            <h4>CommonFootprint 算法</h4>
+          </div>
+          <p>Bounding Box 矩形预过滤与 Haversine 球面距离两阶段高精度空间碰撞匹配，毫秒级得出重合点。</p>
+        </div>
+
+        <div class="tech-card reveal-on-scroll">
+          <div class="tech-card-header">
+            <div class="tech-badge-icon">🔐</div>
+            <h4>CryptoKit & Curve25519</h4>
+          </div>
+          <p>银行级非对称加密算法，生成防伪二维码名片与去中心化身份私钥。</p>
+        </div>
+
+        <div class="tech-card reveal-on-scroll">
+          <div class="tech-card-header">
+            <div class="tech-badge-icon">🎙️</div>
+            <h4>AppIntents & Shortcuts</h4>
+          </div>
+          <p>深度适配 Siri 快捷指令与 AppShortcutsProvider，一声口令即可完成打卡与发呆记录。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       Section 8: FAQ Accordion (常见问题解答)
+       ========================================================================= -->
+  <section class="section" id="faq">
+    <div class="container">
+      <div class="section-header reveal-on-scroll">
+        <span class="section-eyebrow">FREQUENTLY ASKED QUESTIONS</span>
+        <h2 class="section-title">常见问题解答</h2>
+        <p class="section-subtitle">
+          关于走哪啦的使用、数据安全与功能特性，你可能想了解这些。
+        </p>
+      </div>
+
+      <div class="faq-accordion reveal-on-scroll">
+        <div class="faq-item active">
+          <button class="faq-question">
+            <span>我的地理足迹和照片会被上传到服务器吗？</span>
+            <span class="faq-toggle-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>
+              绝对不会。走哪啦采用 100% 本地优先架构，所有足迹坐标、相册照片和瞬间文字均存储在您 iPhone 自身的本地沙盒内，没有任何远程数据库或中央服务器收集您的数据。
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>户外长距离轨迹追踪会导致手机发烫或剧烈耗电吗？</span>
+            <span class="faq-toggle-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>
+              不会。走哪啦内置专门研发的 3 米动态位移过滤与 35 米精度降噪算法，在锁屏和后台运行时智能休眠无效 GPS 计算，既能保证路线精准平滑，又彻底杜绝机身发烫与异常电量消耗。
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>换新手机时，如何将历史足迹和数据迁移过去？</span>
+            <span class="faq-toggle-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>
+              在设置中点击“数据备份与导出”，系统会生成一份包含全部打卡、照片、瞬间和配置的标准加密 ZIP 压缩包。在新手机中导入该文件即可瞬间完整恢复所有历史记录。
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>亲密共同打卡功能是如何在不经过云端的情况下完成匹配的？</span>
+            <span class="faq-toggle-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>
+              通过蓝牙碰一碰或离线加密二维码交换公钥与数据包后，所有 1km 空间碰撞匹配算法（Haversine）均完全在您的设备本地芯片上运行计算，无需经过任何中转服务器。
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>“发呆”功能中的无聊度反馈是如何计算的？</span>
+            <span class="faq-toggle-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>
+              系统会自动统计您今日的发呆与活动打卡频次，根据区间给出趣味评语（如“轻微放空”、“一般无聊”、“非常无聊”、“实在太无聊了”），以轻松幽默的方式帮助您量化闲暇时光。
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       Section 9: Download CTA Banner & Footer
+       ========================================================================= -->
+  <section class="section section-darker" id="download">
+    <div class="container">
+      <div class="cta-banner-wrapper reveal-on-scroll">
+        <div class="cta-banner-glow"></div>
+        <img src="assets/images/icon.png" alt="走哪啦 图标" class="cta-app-icon">
+        <h2>开始记录你的每一次走过与停歇。</h2>
+        <p>
+          告别繁重与焦虑，让时间与空间在你的掌心自然沉淀。即刻在 iOS 上免费开启你的私密生活档案馆。
+        </p>
+        <a href="#" class="cta-download-btn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 3.5c.61-.75 1.04-1.8 0.92-2.85-.92.05-2.02.63-2.65 1.37-.56.65-.96 1.7-0.83 2.72 1.02.08 2.05-.53 2.56-1.24z"/></svg>
+          前往 App Store 免费获取
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top-grid">
+        <div class="footer-brand">
+          <h4>
+            <img src="assets/images/icon.png" alt="走哪啦 图标" style="width: 20px; height: 20px; border-radius: 4px;">
+            走哪啦 (ZounaLa)
+          </h4>
+          <p>
+            专为生活漫步者、户外探索者与回忆收藏家打造的本地优先个人生活痕迹与 Moment 记录器。
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h5>核心特性</h5>
+          <ul>
+            <li><a href="#features">足迹与轨迹追踪</a></li>
+            <li><a href="#features">发呆与无聊统计</a></li>
+            <li><a href="#features">亲密共同打卡</a></li>
+            <li><a href="#features">端侧 AI 智能周报</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>四大支柱</h5>
+          <ul>
+            <li><a href="#pillars">本地优先架构</a></li>
+            <li><a href="#pillars">Curve25519 密码安全</a></li>
+            <li><a href="#pillars">零隐私妥协</a></li>
+            <li><a href="#pillars">SwiftUI 精致工艺</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>关于与支持</h5>
+          <ul>
+            <li><a href="#privacy">隐私保护白皮书</a></li>
+            <li><a href="#faq">常见问题解答</a></li>
+            <li><a href="#tech">技术架构文档</a></li>
+            <li><a href="https://github.com" target="_blank" rel="noopener">GitHub 仓库</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom-bar">
+        <div>© 2026 走哪啦 (ZounaLa). 保留所有权利。Pure Local-First Software.</div>
+        <div style="display: flex; gap: 20px;">
+          <span>无广告 · 无追踪 · 无云端锁定</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="app.js"></script>
+</body>
+</html>
