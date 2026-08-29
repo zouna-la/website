@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Security & Privacy Whitepaper - ZounaLa (走哪啦)</title>
+  <meta name="description" content="ZounaLa Security & Privacy Whitepaper: Detailing our 100% local-first storage, Apple iCloud hosting, Curve25519 asymmetric encryption, on-device AI intelligence, and zero-tracking architecture.">
+  <link rel="icon" type="image/png" href="assets/images/icon.png">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .privacy-article {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: calc(var(--nav-height) + 60px) 24px 80px;
+    }
+    .privacy-article h1 {
+      font-size: clamp(32px, 5vw, 48px);
+      font-weight: 700;
+      margin-bottom: 16px;
+      letter-spacing: -0.02em;
+    }
+    .privacy-article .pub-date {
+      color: var(--text-tertiary);
+      font-size: 14px;
+      margin-bottom: 40px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .privacy-section-block {
+      margin-bottom: 48px;
+    }
+    .privacy-section-block h2 {
+      font-size: 24px;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .privacy-section-block p {
+      color: var(--text-secondary);
+      font-size: 16px;
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+    .privacy-box-highlight {
+      background: var(--bg-card);
+      border: 1px solid var(--border-highlight);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      margin: 20px 0;
+    }
+    .privacy-box-highlight ul {
+      padding-left: 20px;
+      color: var(--text-secondary);
+      line-height: 1.8;
+    }
+    .privacy-box-highlight li {
+      margin-bottom: 10px;
+    }
+    .privacy-box-highlight li:last-child {
+      margin-bottom: 0;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="nav-container">
+      <a href="index.html" class="nav-brand">
+        <img src="assets/images/icon.png" alt="ZounaLa App Icon" class="brand-icon">
+        <span>ZounaLa</span>
+        <span class="brand-tag">走哪啦</span>
+      </a>
+      <div class="nav-actions">
+        <a href="privacy.html" class="btn-secondary" style="padding: 6px 14px; font-size: 13px; margin-right: 8px;">简体中文</a>
+        <a href="index.html" class="btn-secondary" style="padding: 6px 16px; font-size: 13px;">Back to Home</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="privacy-article">
+    <span class="section-eyebrow green">SECURITY & PRIVACY WHITEPAPER</span>
+    <h1>Security & Privacy Whitepaper</h1>
+    <div class="pub-date">Last Updated: August 2026 · ZounaLa Engineering Team</div>
+
+    <div class="privacy-section-block">
+      <h2>🔒 1. Zero-Server Architecture & Local-First Philosophy</h2>
+      <p>
+        From day one, <strong>ZounaLa (走哪啦)</strong> was engineered around a single uncompromised principle: <strong>Your data belongs entirely and exclusively to you</strong>. In an era where cloud services often compromise personal confidentiality and harvest user behavior, we steadfastly reject traditional centralized commercial database servers.
+      </p>
+      <div class="privacy-box-highlight">
+        <ul>
+          <li><strong>Zero Independent Business Servers:</strong> We do not build, operate, or maintain any independent backend servers or central databases to collect or store your geographic locations, journal entries, photos, or idle records.</li>
+          <li><strong>iOS Native Sandbox Protection:</strong> All your core footprint logs, idle moments, spontaneous notes, and photos are encrypted and persisted locally inside your iPhone's native, secure application sandbox.</li>
+          <li><strong>Official Apple iCloud Hosting & Sync:</strong> When you choose to enable collaborative features such as "Family & Friends Space" or "Idle & Data Sync", your data is securely hosted and synced directly through Apple's official iCloud infrastructure (CloudKit) using private, encrypted channels. Your information is fully protected by Apple's rigorous security and privacy architecture. Our team never acts as an intermediary, intercepts, or collects your private data.</li>
+          <li><strong>100% Offline Capability:</strong> Even in Airplane Mode, during backcountry hikes, or in areas with zero cellular reception, all standalone recording, mapping, and journaling functions operate seamlessly without interruption.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="privacy-section-block">
+      <h2>🧠 2. On-Device AI Intelligence</h2>
+      <p>
+        ZounaLa's intelligent 30-word moment summaries and Sunday psychological lifestyle digests are computed entirely on-device using Apple's <strong>FoundationModels</strong> and Neural Engine.
+      </p>
+      <p>
+        All inference executes locally on your device's Apple Silicon processor. Your personal words, thoughts, and emotional reflections are never uploaded to any remote third-party AI cloud APIs.
+      </p>
+    </div>
+
+    <div class="privacy-section-block">
+      <h2>🛡️ 3. Curve25519 Asymmetric Encryption & QR Business Cards</h2>
+      <p>
+        The app supports pairing with intimate friends and family members through Bluetooth Bump (MultipeerConnectivity) and encrypted QR business cards.
+      </p>
+      <div class="privacy-box-highlight">
+        <ul>
+          <li><strong>Asymmetric Keypairs:</strong> A dedicated Curve25519 cryptographic identity keypair is generated locally on your device during initial setup.</li>
+          <li><strong>Cryptographic Signatures:</strong> QR business cards contain embedded digital signatures to prevent tampering, impersonation, or forgery.</li>
+          <li><strong>Autonomous Private Key Backup:</strong> You can export and back up your identity private key at any time, maintaining absolute sovereignty over your digital identity.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="privacy-section-block">
+      <h2>📦 4. Complete Data Export & Migration Freedom (Data Sovereignty)</h2>
+      <p>
+        We are fundamentally opposed to vendor lock-in. ZounaLa includes a built-in full-fidelity data packager (<code>AppExportBundle</code>) that enables one-click bundling of all footprints, moments, life events, intimate family connections, and configurations into an open, standard ZIP archive.
+      </p>
+      <p>
+        You can store this ZIP archive in iCloud Drive, on your personal computer, or in any trusted backup location, and restore it with a single tap on any iPhone running ZounaLa.
+      </p>
+    </div>
+
+    <div class="privacy-section-block">
+      <h2>🚫 5. Zero Advertisements & Zero Third-Party Tracking</h2>
+      <p>
+        ZounaLa does not integrate any third-party advertisement SDKs, analytics tracking beacons, or data broker tools. Every click, every step recorded, and every second of quiet reflection belongs solely to you.
+      </p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container" style="text-align: center;">
+      <p>© 2026 ZounaLa (走哪啦). Local-First · Absolute Privacy · Crafted with Precision.</p>
+    </div>
+  </footer>
+</body>
+</html>
