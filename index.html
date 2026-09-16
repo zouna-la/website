@@ -87,6 +87,11 @@
         </div>
         <div class="pillar-divider"></div>
         <div class="pillar-item">
+          <span class="p-icon">⛓️</span>
+          <span><strong>区块链账本</strong> SHA-256 链式防伪</span>
+        </div>
+        <div class="pillar-divider"></div>
+        <div class="pillar-item">
           <span class="p-icon">🛡️</span>
           <span><strong>Curve25519</strong> 非对称私钥保护</span>
         </div>
@@ -259,18 +264,18 @@
           </div>
         </div>
 
-        <!-- Pillar 2: 极致安全 -->
+        <!-- Pillar 2: 极致安全与区块链防伪 -->
         <div class="pillar-card p-security reveal-on-scroll">
           <div class="pillar-card-icon">🛡️</div>
-          <h3>密码级安全</h3>
-          <div class="pillar-tagline">Rock-Solid Security</div>
+          <h3>密码级安全与区块链防伪</h3>
+          <div class="pillar-tagline">Blockchain Ledger & Cryptography</div>
           <p>
-            采用非对称加密算法守护身份。支持身份私钥安全导出，并在激活后 3~7 天提供贴心备份提醒管家。
+            严守 Append-Only 链式不可篡改账本，生成专属 Curve25519 密钥对与 SHA-256 链式哈希，杜绝数据导出篡改与伪造。
           </p>
           <div class="pillar-tech-specs">
-            <div class="tech-spec-item">密码学：<span>Curve25519 密钥对</span></div>
-            <div class="tech-spec-item">签名验证：<span>防篡改加密二维码</span></div>
-            <div class="tech-spec-item">安全提醒：<span>本地状态全生命周期追踪</span></div>
+            <div class="tech-spec-item">账本架构：<span>Append-Only Hash Chain</span></div>
+            <div class="tech-spec-item">防伪验证：<span>Ed25519 签名 + Merkle Tree</span></div>
+            <div class="tech-spec-item">身份安全：<span>Curve25519 离线私钥对</span></div>
           </div>
         </div>
 
@@ -592,6 +597,102 @@
             </div>
           </div>
         </div>
+
+        <!-- Bento 7: 区块链打卡防伪账本 (Col 12) -->
+        <div class="bento-card bento-col-12 reveal-on-scroll bento-blockchain-card">
+          <div class="bento-blockchain-header">
+            <div>
+              <span class="bento-card-badge">⛓️ 信任基石 · 区块链防篡改账本</span>
+              <h3>Append-Only 链式打卡账本 · 真实无欺的人生印记</h3>
+              <p style="max-width: 780px; margin-top: 8px; color: var(--text-secondary); font-size: 14.5px; line-height: 1.6;">
+                坚信“走过的路不可逆转”。走哪啦引入区块链账本设计哲学：严禁任意删除足迹点，杜绝时间与坐标倒流；每一条打卡均绑定严格自增 Nonce、前序记录 SHA-256 哈希、精确坐标与 Ed25519 密码学签名，并由 Merkle Root 进行全账本指纹锚定。无论何时导出 ZIP 备份，任何在外部对手动修改时间、经纬度或插队伪造的企图，都将在导入回放时被系统毫秒级识破并拒绝，守护个人真实历史，更为未来接入去中心化公链奠定纯正底座。
+              </p>
+            </div>
+            <div class="blockchain-status-pill">
+              <span class="status-dot-green"></span>
+              <span>Merkle Tree Verified · 账本状态有效</span>
+            </div>
+          </div>
+
+          <!-- Blockchain Visual Simulator Container -->
+          <div class="blockchain-visual-track">
+            <!-- Block 0: Genesis -->
+            <div class="bc-block-node">
+              <div class="bc-block-badge">Genesis Block #0</div>
+              <div class="bc-block-title">创世区块 · 身份根锚点</div>
+              <div class="bc-kv-row"><span>Nonce:</span> <code>0</code></div>
+              <div class="bc-kv-row"><span>PrevHash:</span> <code>0000...0000</code></div>
+              <div class="bc-kv-row"><span>Block Hash:</span> <code>0x4a9f...e102</code></div>
+              <div class="bc-chip secure">✓ 根私钥初始化</div>
+            </div>
+
+            <!-- Chain Arrow -->
+            <div class="bc-chain-link">
+              <div class="bc-link-line"></div>
+              <div class="bc-link-arrow">➔</div>
+              <div class="bc-link-tag">SHA-256 Hash</div>
+            </div>
+
+            <!-- Block 1: Check-in -->
+            <div class="bc-block-node">
+              <div class="bc-block-badge">Block #41 · 打卡</div>
+              <div class="bc-block-title">📍 滨海公园绿道</div>
+              <div class="bc-kv-row"><span>Nonce:</span> <code>41</code></div>
+              <div class="bc-kv-row"><span>PrevHash:</span> <code>0x4a9f...e102</code></div>
+              <div class="bc-kv-row"><span>Signature:</span> <code>Ed25519 ✓</code></div>
+              <div class="bc-chip verified">✓ 坐标不可篡改</div>
+            </div>
+
+            <!-- Chain Arrow -->
+            <div class="bc-chain-link">
+              <div class="bc-link-line"></div>
+              <div class="bc-link-arrow">➔</div>
+              <div class="bc-link-tag">SHA-256 Hash</div>
+            </div>
+
+            <!-- Block 2: Latest Check-in -->
+            <div class="bc-block-node active-glow">
+              <div class="bc-block-badge glow">Block #42 · 最新</div>
+              <div class="bc-block-title">☕️ 梧桐咖啡馆发呆</div>
+              <div class="bc-kv-row"><span>Nonce:</span> <code>42</code></div>
+              <div class="bc-kv-row"><span>PrevHash:</span> <code>0x8c7b...33d1</code></div>
+              <div class="bc-kv-row"><span>Merkle Root:</span> <code>0xfa12...99bc</code></div>
+              <div class="bc-chip active">● 链上时间戳锁定</div>
+            </div>
+          </div>
+
+          <!-- Bottom Feature Badges -->
+          <div class="blockchain-features-grid">
+            <div class="bc-feat-item">
+              <div class="bc-feat-icon">🔒</div>
+              <div>
+                <strong style="color: var(--text-primary); font-size: 13.5px;">Append-Only 严禁删除</strong>
+                <p style="margin: 3px 0 0 0; color: var(--text-secondary); font-size: 12.5px;">真实时光无法撤回，从机制上杜绝虚荣性打卡与修改。</p>
+              </div>
+            </div>
+            <div class="bc-feat-item">
+              <div class="bc-feat-icon">⛓️</div>
+              <div>
+                <strong style="color: var(--text-primary); font-size: 13.5px;">前序哈希咬合</strong>
+                <p style="margin: 3px 0 0 0; color: var(--text-secondary); font-size: 12.5px;">后一块紧扣前一块，修改历史任何一条都会导致整链哈希崩塌。</p>
+              </div>
+            </div>
+            <div class="bc-feat-item">
+              <div class="bc-feat-icon">🔏</div>
+              <div>
+                <strong style="color: var(--text-primary); font-size: 13.5px;">Ed25519 签名防伪</strong>
+                <p style="margin: 3px 0 0 0; color: var(--text-secondary); font-size: 12.5px;">导出 ZIP 后若在外部修改经纬度与时间，重新导入时必被拒。</p>
+              </div>
+            </div>
+            <div class="bc-feat-item">
+              <div class="bc-feat-icon">🌐</div>
+              <div>
+                <strong style="color: var(--text-primary); font-size: 13.5px;">未来去中心化接口</strong>
+                <p style="margin: 3px 0 0 0; color: var(--text-secondary); font-size: 12.5px;">数据结构天然契合智能合约，随时可直接桥接区块链去中心化存证。</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -761,8 +862,13 @@
               <td><span class="tag-risk">✕ 无法加载历史数据，服务随时可能中断</span></td>
             </tr>
             <tr>
+              <td><strong>历史打卡防篡改与防作弊</strong></td>
+              <td><span class="tag-secure">✓ 区块链式 Append-Only 账本 + SHA-256 链式哈希 + Ed25519 签名防伪，杜绝导出窜改</span></td>
+              <td><span class="tag-risk">✕ 普通数据库或无校验，导出文件或接口可被随意伪造、修改经纬度与时间</span></td>
+            </tr>
+            <tr>
               <td><strong>数据导出与归属</strong></td>
-              <td><span class="tag-secure">✓ 一键标准 ZIP 全量导出与随时还原</span></td>
+              <td><span class="tag-secure">✓ 一键标准 ZIP 全量导出与随时还原（附带密码学校验）</span></td>
               <td><span class="tag-risk">✕ 厂商封闭锁定，难以无损迁移数据</span></td>
             </tr>
           </tbody>
@@ -827,6 +933,14 @@
 
         <div class="tech-card reveal-on-scroll">
           <div class="tech-card-header">
+            <div class="tech-badge-icon">⛓️</div>
+            <h4>Blockchain Hash Chain</h4>
+          </div>
+          <p>构建 Append-Only 链式打卡账本，结合 SHA-256 哈希链、Ed25519 密码签名与 Merkle Tree 状态校验，实现金融级防伪与防重放。</p>
+        </div>
+
+        <div class="tech-card reveal-on-scroll">
+          <div class="tech-card-header">
             <div class="tech-badge-icon">🎙️</div>
             <h4>AppIntents & Shortcuts</h4>
           </div>
@@ -870,6 +984,18 @@
           <div class="faq-answer">
             <p>
               不会。走哪啦内置专门研发的 3 米动态位移过滤与 35 米精度降噪算法，在锁屏和后台运行时智能休眠无效 GPS 计算，既能保证路线精准平滑，又彻底杜绝机身发烫与异常电量消耗。
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>为什么走哪啦采用区块链思维设计打卡？导出的数据能被修改吗？</span>
+            <span class="faq-toggle-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>
+              走哪啦坚信“走过的路是不可篡改的真实人生印记”。传统打卡或日记软件在导出数据后，极易被手动修改经纬度、偷换时间或插队伪造。走哪啦引入了区块链式 Append-Only 账本机制：每一次打卡都严格绑定自增 Nonce、前序记录哈希、精准坐标与 Ed25519 数字签名，并由 Merkle Tree 校验全局状态。任何在外部对备份包中时间或坐标的篡改，都会导致哈希链断裂而在重新导入时被系统坚决拒绝。同时，这一结构规范也为未来接入去中心化公链存证奠定了标准基础。
             </p>
           </div>
         </div>
@@ -954,6 +1080,7 @@
             <li><a href="#features">发呆与无聊统计</a></li>
             <li><a href="#features">亲密共同打卡</a></li>
             <li><a href="#features">端侧 AI 智能周报</a></li>
+            <li><a href="#features">区块链防篡改账本</a></li>
           </ul>
         </div>
 
