@@ -13,7 +13,201 @@
   <link rel="apple-touch-icon" href="assets/images/icon.png">
 
   <!-- Styles -->
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=2.1">
+  <!-- Blockchain Bento Card Inline Styles (Ensures Zero Cache Delay) -->
+  <style>
+    .bento-blockchain-card {
+      background: radial-gradient(120% 120% at 50% 0%, rgba(18, 28, 48, 0.65) 0%, rgba(12, 14, 20, 0.85) 100%) !important;
+      border: 1px solid rgba(41, 151, 255, 0.28) !important;
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45) !important;
+      position: relative;
+      overflow: hidden;
+    }
+    .bento-blockchain-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .blockchain-status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      background: rgba(48, 209, 88, 0.12);
+      border: 1px solid rgba(48, 209, 88, 0.3);
+      border-radius: 99px;
+      font-size: 13px;
+      font-weight: 500;
+      color: #30d158;
+      backdrop-filter: blur(10px);
+    }
+    .status-dot-green {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #30d158;
+      box-shadow: 0 0 8px #30d158;
+      animation: pulseDot 2s infinite ease-in-out;
+    }
+    .blockchain-visual-track {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin: 24px 0;
+      overflow-x: auto;
+      padding: 18px 14px;
+      background: rgba(0, 0, 0, 0.35);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      scrollbar-width: thin;
+    }
+    .bc-block-node {
+      flex: 1;
+      min-width: 230px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      position: relative;
+      transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .bc-block-node:hover {
+      border-color: rgba(41, 151, 255, 0.45);
+      transform: translateY(-2px);
+      background: rgba(255, 255, 255, 0.06);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.4);
+    }
+    .bc-block-node.active-glow {
+      background: linear-gradient(145deg, rgba(41, 151, 255, 0.1) 0%, rgba(15, 24, 40, 0.7) 100%);
+      border-color: rgba(41, 151, 255, 0.5);
+      box-shadow: 0 0 24px rgba(41, 151, 255, 0.18);
+    }
+    .bc-block-badge {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--apple-blue-light);
+      letter-spacing: 0.6px;
+      margin-bottom: 6px;
+    }
+    .bc-block-badge.glow {
+      color: #64d2ff;
+      text-shadow: 0 0 10px rgba(100, 210, 255, 0.45);
+    }
+    .bc-block-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 12px;
+    }
+    .bc-kv-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      color: var(--text-secondary);
+      margin-bottom: 5px;
+    }
+    .bc-kv-row code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      color: #a1a1a6;
+      background: rgba(255, 255, 255, 0.08);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 11px;
+    }
+    .bc-chip {
+      margin-top: 10px;
+      font-size: 11px;
+      padding: 4px 8px;
+      border-radius: 6px;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-weight: 600;
+    }
+    .bc-chip.secure {
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--text-secondary);
+    }
+    .bc-chip.verified {
+      background: rgba(48, 209, 88, 0.15);
+      color: #30d158;
+      border: 1px solid rgba(48, 209, 88, 0.25);
+    }
+    .bc-chip.active {
+      background: rgba(41, 151, 255, 0.18);
+      color: #2997ff;
+      border: 1px solid rgba(41, 151, 255, 0.35);
+    }
+    .bc-chain-link {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-width: 72px;
+      flex-shrink: 0;
+      position: relative;
+    }
+    .bc-link-line {
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, rgba(41, 151, 255, 0.2), rgba(100, 210, 255, 0.85), rgba(41, 151, 255, 0.2));
+      position: relative;
+    }
+    .bc-link-arrow {
+      font-size: 13px;
+      color: #64d2ff;
+      margin-top: -8px;
+    }
+    .bc-link-tag {
+      font-size: 10px;
+      color: var(--text-tertiary);
+      font-family: ui-monospace, SFMono-Regular, monospace;
+      margin-top: 4px;
+    }
+    .blockchain-features-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin-top: 22px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border-subtle);
+    }
+    .bc-feat-item {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+    .bc-feat-icon {
+      font-size: 18px;
+      flex-shrink: 0;
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    @media (max-width: 900px) {
+      .blockchain-features-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 600px) {
+      .blockchain-features-grid {
+        grid-template-columns: 1fr;
+      }
+      .bento-blockchain-header {
+        flex-direction: column;
+      }
+    }
+  </style>
 </head>
 <body>
 
