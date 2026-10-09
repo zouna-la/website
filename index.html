@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>走哪啦 (ZounaLa) - 个人生活痕迹与Moment记录器 | 本地优先 · 绝对隐私 · 极致工艺</title>
-  <meta name="description" content="走哪啦 (ZounaLa) 是一款专为生活漫步者、户外探索者与回忆收藏家打造的 iOS 本地优先生活记录器。记录发呆时刻、地理足迹、灵光瞬间与亲密里程碑，零云端追踪，数据完全归你所有。">
+  <meta name="description"
+    content="走哪啦 (ZounaLa) 是一款专为生活漫步者、户外探索者与回忆收藏家打造的 iOS 本地优先生活记录器。记录发呆时刻、地理足迹、灵光瞬间与亲密里程碑，零云端追踪，数据完全归你所有。">
   <meta name="keywords" content="走哪啦, ZounaLa, 生活记录, 地理足迹, 轨迹追踪, 发呆打卡, 亲密共同足迹, 本地优先, 隐私保护, iOS App, SwiftUI">
   <meta name="theme-color" content="#000000">
 
@@ -23,6 +25,7 @@
       position: relative;
       overflow: hidden;
     }
+
     .bento-blockchain-header {
       display: flex;
       justify-content: space-between;
@@ -31,6 +34,7 @@
       gap: 16px;
       margin-bottom: 24px;
     }
+
     .blockchain-status-pill {
       display: inline-flex;
       align-items: center;
@@ -44,6 +48,7 @@
       color: #30d158;
       backdrop-filter: blur(10px);
     }
+
     .status-dot-green {
       width: 8px;
       height: 8px;
@@ -52,6 +57,7 @@
       box-shadow: 0 0 8px #30d158;
       animation: pulseDot 2s infinite ease-in-out;
     }
+
     .blockchain-visual-track {
       display: flex;
       align-items: center;
@@ -65,6 +71,7 @@
       border-radius: var(--radius-lg);
       scrollbar-width: thin;
     }
+
     .bc-block-node {
       flex: 1;
       min-width: 230px;
@@ -75,17 +82,20 @@
       position: relative;
       transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
     }
+
     .bc-block-node:hover {
       border-color: rgba(41, 151, 255, 0.45);
       transform: translateY(-2px);
       background: rgba(255, 255, 255, 0.06);
       box-shadow: 0 10px 24px rgba(0, 0, 0, 0.4);
     }
+
     .bc-block-node.active-glow {
       background: linear-gradient(145deg, rgba(41, 151, 255, 0.1) 0%, rgba(15, 24, 40, 0.7) 100%);
       border-color: rgba(41, 151, 255, 0.5);
       box-shadow: 0 0 24px rgba(41, 151, 255, 0.18);
     }
+
     .bc-block-badge {
       font-size: 11px;
       font-weight: 700;
@@ -94,16 +104,19 @@
       letter-spacing: 0.6px;
       margin-bottom: 6px;
     }
+
     .bc-block-badge.glow {
       color: #64d2ff;
       text-shadow: 0 0 10px rgba(100, 210, 255, 0.45);
     }
+
     .bc-block-title {
       font-size: 15px;
       font-weight: 600;
       color: var(--text-primary);
       margin-bottom: 12px;
     }
+
     .bc-kv-row {
       display: flex;
       justify-content: space-between;
@@ -111,6 +124,7 @@
       color: var(--text-secondary);
       margin-bottom: 5px;
     }
+
     .bc-kv-row code {
       font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
       color: #a1a1a6;
@@ -119,6 +133,7 @@
       border-radius: 4px;
       font-size: 11px;
     }
+
     .bc-chip {
       margin-top: 10px;
       font-size: 11px;
@@ -129,20 +144,24 @@
       gap: 4px;
       font-weight: 600;
     }
+
     .bc-chip.secure {
       background: rgba(255, 255, 255, 0.08);
       color: var(--text-secondary);
     }
+
     .bc-chip.verified {
       background: rgba(48, 209, 88, 0.15);
       color: #30d158;
       border: 1px solid rgba(48, 209, 88, 0.25);
     }
+
     .bc-chip.active {
       background: rgba(41, 151, 255, 0.18);
       color: #2997ff;
       border: 1px solid rgba(41, 151, 255, 0.35);
     }
+
     .bc-chain-link {
       display: flex;
       flex-direction: column;
@@ -152,23 +171,27 @@
       flex-shrink: 0;
       position: relative;
     }
+
     .bc-link-line {
       width: 100%;
       height: 2px;
       background: linear-gradient(90deg, rgba(41, 151, 255, 0.2), rgba(100, 210, 255, 0.85), rgba(41, 151, 255, 0.2));
       position: relative;
     }
+
     .bc-link-arrow {
       font-size: 13px;
       color: #64d2ff;
       margin-top: -8px;
     }
+
     .bc-link-tag {
       font-size: 10px;
       color: var(--text-tertiary);
       font-family: ui-monospace, SFMono-Regular, monospace;
       margin-top: 4px;
     }
+
     .blockchain-features-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -177,11 +200,13 @@
       padding-top: 20px;
       border-top: 1px solid var(--border-subtle);
     }
+
     .bc-feat-item {
       display: flex;
       gap: 12px;
       align-items: flex-start;
     }
+
     .bc-feat-icon {
       font-size: 18px;
       flex-shrink: 0;
@@ -194,21 +219,25 @@
       align-items: center;
       justify-content: center;
     }
+
     @media (max-width: 900px) {
       .blockchain-features-grid {
         grid-template-columns: repeat(2, 1fr);
       }
     }
+
     @media (max-width: 600px) {
       .blockchain-features-grid {
         grid-template-columns: 1fr;
       }
+
       .bento-blockchain-header {
         flex-direction: column;
       }
     }
   </style>
 </head>
+
 <body>
 
   <!-- =========================================================================
@@ -236,7 +265,7 @@
       </nav>
 
       <div class="nav-actions">
-        <a href="#download" class="btn-nav-cta">免费下载</a>
+        <a href="https://apps.apple.com/app/%E8%B5%B0%E5%93%AA%E5%95%A6/id6805533059" class="btn-nav-cta">免费下载</a>
       </div>
     </div>
   </header>
@@ -264,12 +293,17 @@
 
       <div class="hero-cta-group">
         <a href="#download" class="btn-primary">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 3.5c.61-.75 1.04-1.8 0.92-2.85-.92.05-2.02.63-2.65 1.37-.56.65-.96 1.7-0.83 2.72 1.02.08 2.05-.53 2.56-1.24z"/></svg>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 3.5c.61-.75 1.04-1.8 0.92-2.85-.92.05-2.02.63-2.65 1.37-.56.65-.96 1.7-0.83 2.72 1.02.08 2.05-.53 2.56-1.24z" />
+          </svg>
           App Store 免费获取
         </a>
         <a href="#simulator" class="btn-secondary">
           <span>探索核心特性</span>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12h14M12 5l7 7-7 7" />
+          </svg>
         </a>
       </div>
 
@@ -653,9 +687,11 @@
 
             <!-- Simulated SVG Route -->
             <svg class="interactive-route-svg" viewBox="0 0 500 100" fill="none">
-              <path d="M 20 80 Q 80 20, 150 60 T 280 40 T 400 70 T 480 30" stroke="rgba(41, 151, 255, 0.4)" stroke-width="6" stroke-linecap="round"/>
-              <path d="M 20 80 Q 80 20, 150 60 T 280 40 T 400 70 T 480 30" stroke="#2997ff" stroke-width="3" stroke-linecap="round" stroke-dasharray="10 5"/>
-              <circle cx="480" cy="30" r="6" fill="#30d158" stroke="#ffffff" stroke-width="2"/>
+              <path d="M 20 80 Q 80 20, 150 60 T 280 40 T 400 70 T 480 30" stroke="rgba(41, 151, 255, 0.4)"
+                stroke-width="6" stroke-linecap="round" />
+              <path d="M 20 80 Q 80 20, 150 60 T 280 40 T 400 70 T 480 30" stroke="#2997ff" stroke-width="3"
+                stroke-linecap="round" stroke-dasharray="10 5" />
+              <circle cx="480" cy="30" r="6" fill="#30d158" stroke="#ffffff" stroke-width="2" />
             </svg>
           </div>
         </div>
@@ -678,7 +714,8 @@
             <div class="boredom-meter-bar">
               <div class="boredom-meter-fill" id="boredomMeterFill"></div>
             </div>
-            <input type="range" id="boredomSlider" min="0" max="10" value="4" style="width: 100%; accent-color: var(--apple-blue);">
+            <input type="range" id="boredomSlider" min="0" max="10" value="4"
+              style="width: 100%; accent-color: var(--apple-blue);">
             <div style="font-size: 11px; color: var(--text-tertiary); text-align: center;">拖动滑块模拟今日打卡频次</div>
           </div>
         </div>
@@ -782,7 +819,8 @@
             </p>
           </div>
 
-          <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 18px; margin-top: 16px;">
+          <div
+            style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 18px; margin-top: 16px;">
             <div style="font-size: 13px; font-weight: 600; color: var(--apple-purple); margin-bottom: 6px;">
               ✨ 端侧 AI 本周心境洞察
             </div>
@@ -798,8 +836,11 @@
             <div>
               <span class="bento-card-badge">⛓️ 信任基石 · 区块链防篡改账本</span>
               <h3>Append-Only 链式打卡账本 · 真实无欺的人生印记</h3>
-              <p style="max-width: 780px; margin-top: 8px; color: var(--text-secondary); font-size: 14.5px; line-height: 1.6;">
-                坚信“走过的路不可逆转”。走哪啦引入区块链账本设计哲学：严禁任意删除足迹点，杜绝时间与坐标倒流；每一条打卡均绑定严格自增 Nonce、前序记录 SHA-256 哈希、精确坐标与 Ed25519 密码学签名，并由 Merkle Root 进行全账本指纹锚定。无论何时导出 ZIP 备份，任何在外部对手动修改时间、经纬度或插队伪造的企图，都将在导入回放时被系统毫秒级识破并拒绝，守护个人真实历史，更为未来接入去中心化公链奠定纯正底座。
+              <p
+                style="max-width: 780px; margin-top: 8px; color: var(--text-secondary); font-size: 14.5px; line-height: 1.6;">
+                坚信“走过的路不可逆转”。走哪啦引入区块链账本设计哲学：严禁任意删除足迹点，杜绝时间与坐标倒流；每一条打卡均绑定严格自增 Nonce、前序记录 SHA-256 哈希、精确坐标与 Ed25519
+                密码学签名，并由 Merkle Root 进行全账本指纹锚定。无论何时导出 ZIP
+                备份，任何在外部对手动修改时间、经纬度或插队伪造的企图，都将在导入回放时被系统毫秒级识破并拒绝，守护个人真实历史，更为未来接入去中心化公链奠定纯正底座。
               </p>
             </div>
             <div class="blockchain-status-pill">
@@ -861,28 +902,32 @@
               <div class="bc-feat-icon">🔒</div>
               <div>
                 <strong style="color: var(--text-primary); font-size: 13.5px;">Append-Only 严禁删除</strong>
-                <p style="margin: 3px 0 0 0; color: var(--text-secondary); font-size: 12.5px;">真实时光无法撤回，从机制上杜绝虚荣性打卡与修改。</p>
+                <p style="margin: 3px 0 0 0; color: var(--text-secondary); font-size: 12.5px;">真实时光无法撤回，从机制上杜绝虚荣性打卡与修改。
+                </p>
               </div>
             </div>
             <div class="bc-feat-item">
               <div class="bc-feat-icon">⛓️</div>
               <div>
                 <strong style="color: var(--text-primary); font-size: 13.5px;">前序哈希咬合</strong>
-                <p style="margin: 3px 0 0 0; color: var(--text-secondary); font-size: 12.5px;">后一块紧扣前一块，修改历史任何一条都会导致整链哈希崩塌。</p>
+                <p style="margin: 3px 0 0 0; color: var(--text-secondary); font-size: 12.5px;">
+                  后一块紧扣前一块，修改历史任何一条都会导致整链哈希崩塌。</p>
               </div>
             </div>
             <div class="bc-feat-item">
               <div class="bc-feat-icon">🔏</div>
               <div>
                 <strong style="color: var(--text-primary); font-size: 13.5px;">Ed25519 签名防伪</strong>
-                <p style="margin: 3px 0 0 0; color: var(--text-secondary); font-size: 12.5px;">导出 ZIP 后若在外部修改经纬度与时间，重新导入时必被拒。</p>
+                <p style="margin: 3px 0 0 0; color: var(--text-secondary); font-size: 12.5px;">导出 ZIP
+                  后若在外部修改经纬度与时间，重新导入时必被拒。</p>
               </div>
             </div>
             <div class="bc-feat-item">
               <div class="bc-feat-icon">🌐</div>
               <div>
                 <strong style="color: var(--text-primary); font-size: 13.5px;">未来去中心化接口</strong>
-                <p style="margin: 3px 0 0 0; color: var(--text-secondary); font-size: 12.5px;">数据结构天然契合智能合约，随时可直接桥接区块链去中心化存证。</p>
+                <p style="margin: 3px 0 0 0; color: var(--text-secondary); font-size: 12.5px;">
+                  数据结构天然契合智能合约，随时可直接桥接区块链去中心化存证。</p>
               </div>
             </div>
           </div>
@@ -1165,7 +1210,8 @@
           </button>
           <div class="faq-answer">
             <p>
-              绝对不会上传至任何第三方服务器。走哪啦坚持“零独立服务器”隐私架构，所有核心足迹、照片与随笔均加密存储在您 iPhone 本地沙盒内；若使用亲友空间与发呆同步，数据也是直接依托苹果官方 iCloud 进行加密托管，我们绝不收集、中转或窥探您的隐私。
+              绝对不会上传至任何第三方服务器。走哪啦坚持“零独立服务器”隐私架构，所有核心足迹、照片与随笔均加密存储在您 iPhone 本地沙盒内；若使用亲友空间与发呆同步，数据也是直接依托苹果官方 iCloud
+              进行加密托管，我们绝不收集、中转或窥探您的隐私。
             </p>
           </div>
         </div>
@@ -1189,7 +1235,9 @@
           </button>
           <div class="faq-answer">
             <p>
-              走哪啦坚信“走过的路是不可篡改的真实人生印记”。传统打卡或日记软件在导出数据后，极易被手动修改经纬度、偷换时间或插队伪造。走哪啦引入了区块链式 Append-Only 账本机制：每一次打卡都严格绑定自增 Nonce、前序记录哈希、精准坐标与 Ed25519 数字签名，并由 Merkle Tree 校验全局状态。任何在外部对备份包中时间或坐标的篡改，都会导致哈希链断裂而在重新导入时被系统坚决拒绝。同时，这一结构规范也为未来接入去中心化公链存证奠定了标准基础。
+              走哪啦坚信“走过的路是不可篡改的真实人生印记”。传统打卡或日记软件在导出数据后，极易被手动修改经纬度、偷换时间或插队伪造。走哪啦引入了区块链式 Append-Only 账本机制：每一次打卡都严格绑定自增
+              Nonce、前序记录哈希、精准坐标与 Ed25519 数字签名，并由 Merkle Tree
+              校验全局状态。任何在外部对备份包中时间或坐标的篡改，都会导致哈希链断裂而在重新导入时被系统坚决拒绝。同时，这一结构规范也为未来接入去中心化公链存证奠定了标准基础。
             </p>
           </div>
         </div>
@@ -1213,7 +1261,8 @@
           </button>
           <div class="faq-answer">
             <p>
-              与家人分享的功能以及“发呆”同步数据完全依托 Apple 官方的 iCloud 私有云（CloudKit）进行加密托管与端到端安全同步，数据受苹果官方高标准安全体系保护。我们坚持零独立业务服务器方案，开发者与第三方均无法获取您的个人数据。
+              与家人分享的功能以及“发呆”同步数据完全依托 Apple 官方的 iCloud
+              私有云（CloudKit）进行加密托管与端到端安全同步，数据受苹果官方高标准安全体系保护。我们坚持零独立业务服务器方案，开发者与第三方均无法获取您的个人数据。
             </p>
           </div>
         </div>
@@ -1245,8 +1294,11 @@
         <p>
           告别繁重与焦虑，让时间与空间在你的掌心自然沉淀。即刻在 iOS 上免费开启你的私密生活档案馆。
         </p>
-        <a href="#" class="cta-download-btn">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 3.5c.61-.75 1.04-1.8 0.92-2.85-.92.05-2.02.63-2.65 1.37-.56.65-.96 1.7-0.83 2.72 1.02.08 2.05-.53 2.56-1.24z"/></svg>
+        <a href="https://apps.apple.com/app/%E8%B5%B0%E5%93%AA%E5%95%A6/id6805533059" class="cta-download-btn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 3.5c.61-.75 1.04-1.8 0.92-2.85-.92.05-2.02.63-2.65 1.37-.56.65-.96 1.7-0.83 2.72 1.02.08 2.05-.53 2.56-1.24z" />
+          </svg>
           前往 App Store 免费获取
         </a>
       </div>
@@ -1311,4 +1363,5 @@
   <!-- Scripts -->
   <script src="app.js"></script>
 </body>
+
 </html>
